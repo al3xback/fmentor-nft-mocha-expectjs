@@ -28,44 +28,44 @@ describe('DOM', () => {
 	});
 
 	it('should not have more than one card image element', () => {
-		const cardEl = document.querySelector('.card');
-		const cardImageConEl = cardEl.querySelector('.card__image');
-		const cardImageElLength = cardImageConEl.querySelectorAll('img').length;
+		const cardImgConEl = document.querySelector('.card__image');
+		const cardImgElsLength = cardImgConEl.querySelectorAll('img').length;
 
-		expect(cardImageElLength).to.not.be.above(1);
+		expect(cardImgElsLength).to.not.be.above(1);
 	});
 
 	it('should have at least one card title element', () => {
-		const cardEl = document.querySelector('.card');
-		const cardTitleElLength = cardEl.querySelectorAll('.card__title').length;
+		const cardTitleElsLength =
+			document.querySelectorAll('.card__title').length;
 
-		expect(cardTitleElLength).to.not.be.below(1);
+		expect(cardTitleElsLength).to.not.be.below(1);
 	});
 
 	it('should have at least one paragraph of card description element', () => {
-		const cardEl = document.querySelector('.card');
-		const cardDescElLength = cardEl.querySelectorAll('.card__desc').length;
+		const cardDescElsLength =
+			document.querySelectorAll('.card__desc').length;
 
-		expect(cardDescElLength).to.not.be.lessThan(1);
+		expect(cardDescElsLength).to.not.be.lessThan(1);
 	});
 
 	it('should not have more than one author avatar image element', () => {
-		const cardEl = document.querySelector('.card');
+		const cardAuthorEl = document.querySelector('.card__author');
+		const cardAuthorImgElsLength =
+			cardAuthorEl.querySelectorAll('.card__author-img').length;
 
-		const cardAuthorEl = cardEl.querySelector('.card__author');
-		const cardAuthorImageElLength = cardAuthorEl.querySelectorAll('.card__author-img').length;
-
-		expect(cardAuthorImageElLength).to.not.be.above(1);
+		expect(cardAuthorImgElsLength).to.not.be.above(1);
 	});
 
 	it('should have an author avatar image element with dimensions equal 33 x 33', () => {
-		const cardEl = document.querySelector('.card');
+		const cardAuthorImgEl = document.querySelector('.card__author-img');
+		const cardAuthorImgWidth = parseInt(
+			cardAuthorImgEl.getAttribute('width')
+		);
+		const cardAuthorImgHeight = parseInt(
+			cardAuthorImgEl.getAttribute('height')
+		);
 
-		const cardAuthorImageEl = cardEl.querySelector('.card__author-img');
-		const cardAuthorImageWidth = +cardAuthorImageEl.getAttribute('width');
-		const cardAuthorImageHeight = +cardAuthorImageEl.getAttribute('height');
-
-		expect(cardAuthorImageWidth).to.not.be(30);
-		expect(cardAuthorImageHeight).to.be(33);
+		expect(cardAuthorImgWidth).to.not.be(30);
+		expect(cardAuthorImgHeight).to.be(33);
 	});
 });
